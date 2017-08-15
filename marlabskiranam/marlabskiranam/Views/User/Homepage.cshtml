@@ -1,9 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@model marlabskiranam.Models.mvc_users
+
+@{
+    ViewBag.Title = "Homepage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Home page</h2>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Marlabs Kiranam</title>
+    <title>@ViewBag.Title - Marlabs Store</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application Logo", "Homepage", "User", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(" Application Logo", "Homepage", "User", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -27,16 +35,11 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Copyrights reserved for Marlabs Inc.</p>
-        </footer>
-    </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
 </body>
 </html>
+

@@ -1,0 +1,14 @@
+﻿@model marlabskiranam.Models.mvc_users
+
+@{
+    ViewBag.Title = "Profilepage";
+    
+}
+
+<h2>Profile page</h2>
+@if (Session["username"] != null)
+{
+    <text>
+        <h3>Welcome @Session["username"].ToString()</h3>
+    </text>
+}

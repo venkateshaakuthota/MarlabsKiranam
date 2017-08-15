@@ -1,0 +1,45 @@
+﻿@model marlabskiranam.Models.mvc_users
+
+@{
+    ViewBag.Title = "Signin Page";
+    
+}
+
+<h3>SignIn Here</h3>
+
+@using (Html.BeginForm("Signin", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.EmailID)</td>
+            <td>@Html.TextBoxFor(a => a.EmailID)</td>
+            <td>@Html.ValidationMessageFor(a => a.EmailID)</td>
+        </tr>
+        <tr>
+
+            <td>@Html.LabelFor(a => a.Password)</td>
+            <td>@Html.PasswordFor(a => a.Password)</td>
+            <td>@Html.ValidationMessageFor(a => a.Password)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Signin" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
+
