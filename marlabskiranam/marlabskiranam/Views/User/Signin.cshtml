@@ -1,4 +1,4 @@
-﻿@model marlabskiranam.Models.mvc_users
+﻿@model marlabskiranam.Models.login
 
 @{
     ViewBag.Title = "Signin Page";
@@ -10,36 +10,43 @@
 @using (Html.BeginForm("Signin", "User", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    if (ViewBag.Message != null)
-    {
-        <div style="border:1px solid red">
-            @ViewBag.Message
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            @Html.LabelFor(a => a.EmailID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(a => a.EmailID, new { htmlAttributes = new { @class = "form-control" },@placeholder="Enter Email Id" })
+                @Html.ValidationMessageFor(a => a.EmailID, "", new { @class = "text-danger" })
+            </div>
         </div>
-    }
-    <table>
-        <tr>
-            <td>@Html.LabelFor(a => a.EmailID)</td>
-            <td>@Html.TextBoxFor(a => a.EmailID)</td>
-            <td>@Html.ValidationMessageFor(a => a.EmailID)</td>
-        </tr>
-        <tr>
+        
+        <div class="form-group">
+            @Html.LabelFor(a => a.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(a => a.Password, new { htmlAttributes = new { @class = "form-control" }, @placeholder = "Enter Password" })
+                @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-            <td>@Html.LabelFor(a => a.Password)</td>
-            <td>@Html.PasswordFor(a => a.Password)</td>
-            <td>@Html.ValidationMessageFor(a => a.Password)</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Signin" />
-            </td>
-            <td></td>
-        </tr>
-    </table>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="SignIn" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
 
-@section Scripts{
-    @Scripts.Render("~/bundles/jqueryval");
+<div>
+    @Html.ActionLink("Back to Home", "Homepage")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
+
 
