@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "marlabskiranam", "marlabskiranam\marlabskiranam.csproj", "{B456602C-BB5E-40CA-9990-710B9E08E796}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "marlabskiranam\Client.csproj", "{B456602C-BB5E-40CA-9990-710B9E08E796}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIMS", "WebAPIMS\WebAPIMS.csproj", "{C988D3B2-F51A-4A4D-9AB6-57C9185924A0}"
 EndProject
