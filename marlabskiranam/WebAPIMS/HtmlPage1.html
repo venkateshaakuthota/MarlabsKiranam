@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Web API Ajax Calls </title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var uEmployees = $('#ulist');
+
+            $('list').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:64064/api/Assessment',
+                    datatype: 'json',
+                    success: function (data) {
+                        ulist.empty();
+                        $.each(data, function (index, val) {
+                            var email = val.email;
+                            ulist.append('<li>' + email + '</li>');
+                        });
+                    }
+                });
+            });
+
+            $('#clr').click(function () {
+                ulist.empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="list" type="button" value="Get All Records"/>
+    <input id="clr" type="button" value="Clear All"/>
+    <ul id="ulist"></ul>
+</body>
+</html>
